@@ -98,7 +98,7 @@ compute_key(char *strId, int year, char *output, int len) {
     int keys = 0,ssidLen = 0;
     int offset = 0;
     if(!(ssidLen = str2ssid(ssid,strId)))
-        return 0;
+        return -99;
     
     //fprintf(stdout,"\nGenerating keys..please wait\n\n");
 

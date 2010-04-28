@@ -82,7 +82,9 @@ int compute_key(char *strId, int year, char *output, int len);
     }
     year-=2000; // compute_key expects it as offset from year 2000
     int nKeys = compute_key(input, year, output, sizeof(output));
-    if (nKeys) {
+    if (nKeys == -99) {
+        [keysPanel setText:@"Wrong SSID.\nMust be a 6 digits hexstring or a complete SpeedTouchXXXXXX string."];
+    } else if (nKeys) {
         [keysPanel setText:[NSString stringWithUTF8String:output]];
         [outLabel setText:[NSString stringWithFormat:@"%d possible keys found:", nKeys]];
     } else {
